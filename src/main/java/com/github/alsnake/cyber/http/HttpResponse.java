@@ -10,6 +10,11 @@ public class HttpResponse {
 	Socket socket;
 	HttpResponseBuilder respb;
 
+	public HttpResponse() {
+		socket = null;
+		respb = new HttpResponseBuilder();
+	}
+
 	public HttpResponse(Socket socket) {
 		this.socket = socket;
 		respb = new HttpResponseBuilder();

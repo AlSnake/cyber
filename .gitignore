@@ -10,6 +10,7 @@ build
 .gradle
 out
 bin
+tmp
 
 # Compiled class file
 *.class

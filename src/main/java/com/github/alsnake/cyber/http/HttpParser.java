@@ -7,7 +7,7 @@ public class HttpParser {
 		HttpRequest httpRequest = new HttpRequest();
 
 		try {
-			String requestLine = data.substring(0, data.indexOf	("\r\n"));
+			String requestLine = data.substring(0, data.indexOf("\r\n"));
 			parseRequestLine(httpRequest, requestLine);
 
 			int headerStartIdx = requestLine.length() + 2;
@@ -17,8 +17,7 @@ public class HttpParser {
 			String body = data.substring(data.indexOf("\r\n\r\n") + 4);
 			httpRequest.setBody(body.trim());
 		} catch (Exception e) {
-			Logger.getLogger().error(e.getMessage());
-			e.printStackTrace();
+			Logger.getLogger().debug(e.getMessage());
 			return null;
 		}
 

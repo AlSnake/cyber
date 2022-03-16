@@ -85,4 +85,16 @@ public class HttpRequest {
 		System.out.println(body);
 		System.out.println("<-----  ----->");
 	}
+
+	@Override
+	public String toString() {
+		return "HttpRequest{" +
+				"method=" + method +
+				", uri='" + uri + '\'' +
+				", httpVersion='" + httpVersion + '\'' +
+				", httpVersionFloat=" + httpVersionFloat +
+				", headers=" + headers +
+				", body='" + body + '\'' +
+				'}';
+	}
 }

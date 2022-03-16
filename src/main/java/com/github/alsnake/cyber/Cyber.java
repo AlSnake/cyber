@@ -1,15 +1,21 @@
 package com.github.alsnake.cyber;
 
-import com.github.alsnake.cyber.http.*;
+import com.github.alsnake.cyber.core.Application;
 
 public class Cyber {
     public static void main(String[] args) {
-		HttpServer httpServer = Http.createServer(new HttpHandleCallback() {
-			@Override
-			public void handle(HttpRequest req, HttpResponse res) {
-				res.send("200 OK", "Hello World").end();
-			}
+		Application cyber = new Application();
+
+		cyber.getRouter().get("/hello", (req, res) -> {
+			System.out.println("/HELLO ROUTE");
+			res.send("200 OK", "HELLO WORLD").end();
 		});
-		httpServer.listen("0.0.0.0", 8081);
+
+		cyber.getRouter().get("/hello2", (req, res) -> {
+			System.out.println("/HELLO ROUTE 2");
+			res.send("201 CREATED", "HELLO 2").end();
+		});
+
+		cyber.run("0.0.0.0", 8081);
     }
 }
