@@ -16,6 +16,13 @@ public class Cyber {
 			res.send("201 CREATED", "HELLO 2").end();
 		});
 
+		cyber.getRouter().get("/hello3", (req, res) -> {
+			System.out.println("MIDDLE WARE FELLA");
+		}, (req, res) -> {
+			System.out.println("/HELLO ROUTE");
+			res.send("200 OK", "HELLO WORLD").end();
+		});
+
 		cyber.run("0.0.0.0", 8081);
     }
 }
